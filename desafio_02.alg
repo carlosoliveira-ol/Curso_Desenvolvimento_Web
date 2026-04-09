@@ -37,6 +37,7 @@ inicio
     escreval("                 -------RESULTADO DO CADASTRO-------")
     escreval("                 ___________________________________")
     escreval(" ")
+    escreval(" ")
     escreva("ESTAGIÁRIO: ")
         escreval(nestagio)
     escreva("IDADE: ")
