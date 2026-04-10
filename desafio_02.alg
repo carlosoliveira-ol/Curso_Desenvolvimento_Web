@@ -7,7 +7,6 @@ var
     email:caractere
     vauxilio:real
     exprevia:logico
-    
 
 inicio
 
@@ -49,7 +48,7 @@ inicio
     escreva("EXPERIÊNCIA PRÉVIA ?: ")
         escreval(exprevia)
     escreval(" ")
-    escreva(nestagio,", de idade ",idade,", propriétario do email (",email,") foi cadastrado com sucesso!")
+    escreva("O estágiario ",nestagio,", de idade ",idade,", propriétario do endereço eletrônico (",email,") foi cadastrado com sucesso!")
     
 
 
