@@ -22,14 +22,12 @@ inicio
         leia(nome)
     limpatela
 //HISTÓRIA
-    escreval(" ")
-        escreva(nome,", você é um soldado quando vê o sargento vindo em sua direção, ele diz: ")
-            escreval("Boa tarde soldado ",nome,"! Estou precisando encher o galão de água e preciso exatamente de 4 litros de água, nem a mais e nem a menos, para resolver este problema vou te entregar 2 baldes, o vermelho tem capacidade para 5 litros, enquanto o preto para 3, agora que tem essas informações, VÁ FAZER SUA TAREFA LOGO E SAIA DA MINHA FRENTE!")
-        escreval(" ")
-    limpatela
-//JOGO
     repita
         limpatela
+            escreva(nome,", você é um soldado quando vê o sargento vindo em sua direção, ele diz: ")
+                escreval("Boa tarde soldado ",nome,"! Estou precisando encher o galão de água e preciso exatamente de 4 litros de água, nem a mais e nem a menos, para resolver este problema vou te entregar 2 baldes, o vermelho tem capacidade para 5 litros, enquanto o preto para 3, agora que tem essas informações, VÁ FAZER SUA TAREFA LOGO E SAIA DA MINHA FRENTE!")
+            escreval(" ")
+//JOGO
         escreval("Depois de andar muito, você finalmente chega ao poço e começa sua tarefa.")
         escreval("O que você faz?")
         escreval("1 - Balde Vermelho (5L)")
