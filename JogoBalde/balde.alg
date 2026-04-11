@@ -87,9 +87,7 @@ inicio
                     escreval("opçao inválida!")
                 
             fimescolha
-                escreval("Tente Novamente!")
     ate (b1=4)
-    limpatela
         Escreval("Parabéns, você ganhou!!")
     
 fimalgoritmo
