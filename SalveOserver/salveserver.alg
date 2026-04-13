@@ -387,12 +387,6 @@ inicio
             escreval(" ")
             escreval("Pressione qualquer tecla pra repetir ou aperte 1 sair do jogo")
             leia(op3)
-            escolha(op3)
-                caso 1 
-                    escreval(" ")
-                outrocaso
-                    escreval(" ")
-            fimescolha
         ate(op3=1)
 
 fimalgoritmo
