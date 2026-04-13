@@ -23,8 +23,8 @@ inicio
                     leia(op2)
                 escreval("Qual o suco de Lucas? ")
                     leia(op3)
-            ate(op1="laranja" e icarina=11 e op2="kiwi" e op3="maracujá")
-            se(op1="laranja" e icarina=11 e op2="kiwi" e op3="maracujá") entao
+            ate(op1="laranja" ou op1="Laranja" e icarina=11 e op2="kiwi" ou op2="Kiwi" e op3="maracujá" ou op3="Maracujá")
+            se(op1="laranja" ou op1="Laranja" e icarina=11 e op2="kiwi" ou op2="Kiwi" e op3="maracujá" ou op3="Maracujá") entao
                 escreval(" ")
                 escreval("PARABÉNS, VOCÊ ACERTOU!!!")
             senao
@@ -35,5 +35,5 @@ inicio
             fimse
             leia(saida)
         ate(saida=1)
-        
+
 fimalgoritmo
