@@ -6,9 +6,10 @@ var
     saida:inteiro
 
 inicio
+
         repita
-            limpatela
             repita
+                limpatela
                 escreval("          ====== JOGO DOS SUCOS ======            ")
                 escreval(" ")
                 escreval("3 crianças estão brincando enquanto a mãe de uma delas prepara 3 sucos diferentes (Larnja, Maracujá e Kiwi, pra cada uma delas, será que você consegue descobrir qual suco pertence a qual criança com base nas pistas?")
@@ -34,6 +35,6 @@ inicio
                 escreval("Pressione qual tecla pra tentar de novo ou 1 para sair")
             fimse
             leia(saida)
-        ate(saida=1)
+        ate(saida<>1)
 
 fimalgoritmo
