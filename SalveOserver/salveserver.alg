@@ -5,6 +5,7 @@ var
     iniciar:caractere
     op1, op2, op3, player, carlos, beatriz, diana, tempo:inteiro
     cont:logico
+    pausa:caractere
 
 inicio
 //Definição de Váriaveis
@@ -15,6 +16,7 @@ inicio
         diana<-0
 //Tela de título
         repita
+            limpatela
             escreval("                             |===================================================|                     ")
             escreval("                             |=============== SALVE O SERVIDOR!!! ===============|                     ")
             escreval("                             |===================================================|                     ")
@@ -45,12 +47,45 @@ inicio
     //GAMEPLAY
             repita
                 escreva("AGORA É COM VOCÊ!!!")
-                limpatela
                 escreval(" ")
-                escreval("TEMPO = Restam ",17-tempo," minutos !!")
-                escreval(" ")
-                escreval(" ")
+                leia(pausa)
                 repita
+                    limpatela
+                    escreval("==============================================")
+                    escreval("            POSIÇÃO DOS PERSONAGENS          ")
+                    escreval("==============================================")
+                    escreval(" ")
+                    // BEATRIZ
+                    se (beatriz = 0) entao
+                        escreval("Beatriz ------------------------------")
+                    senao
+                        escreval("------------------------------ Beatriz")
+                    fimse
+                    // CARLOS
+                    se (carlos = 0) entao
+                        escreval("Carlos  ------------------------------")
+                    senao
+                        escreval("------------------------------ Carlos")
+                    fimse
+                    // VOCÊ (player)
+                    se (player = 0) entao
+                        escreval("Você    ------------------------------")
+                    senao
+                        escreval("------------------------------ Você")
+                    fimse
+                    // DIANA
+                    se (diana = 0) entao
+                        escreval("Diana   ------------------------------")
+                    senao
+                        escreval("------------------------------ Diana")
+                    fimse
+                    escreval(" ")
+                    escreval("INÍCIO                           FINAL")
+                    escreval("==============================================")
+                    escreval(" ")
+                    escreval("TEMPO = Restam ",17-tempo," minutos !!")
+                    escreval(" ")
+                    escreval(" ")
                     cont<-falso
                     escreval("Escolha uma opção de ida:")
                     escreval(" ")
@@ -182,12 +217,14 @@ inicio
                                 carlos<-10
                                 tempo<-tempo + 0
                                 cont<-falso
+                                leia(pausa)
                             senao
                                 se(diana>0) entao
                                     escreval("Diana ja esta do outro lado!")
                                     diana<-10
                                     tempo<-tempo + 0
                                     cont<-falso
+                                    leia(pausa)
                                 senao
                                     se(diana>0 e carlos>0) entao
                                         escreval("Diana e Carlos ja estao do outro lado!")
@@ -195,6 +232,7 @@ inicio
                                         diana<-10
                                         tempo<-tempo + 0
                                         cont<-falso
+                                        leia(pausa)
                                     senao
                                         escreval("Diana e Carlos atravessaram em 10 minutos !")
                                         carlos<-10
@@ -217,9 +255,9 @@ inicio
                                     tempo<-tempo + 0
                                     cont<-falso
                                 senao
-                                    se(diana>0 e carlos>0) entao
+                                    se(diana>0 e player>0) entao
                                         escreval("Você e Diana já estão do outro lado")
-                                        carlos<-10
+                                        player<-10
                                         diana<-10
                                         tempo<-tempo + 0
                                         cont<-falso
@@ -235,13 +273,51 @@ inicio
                         outrocaso
                             escreval("OPÇÃO INVÁLIDA")
                     fimescolha
+                    se(cont=falso) entao
+                        leia(pausa)
+                        escreval(" ")
+                        escreval("pressione qualquer tecla pra continuar")
+                    senao
+                        escreval(" ")
+                    fimse
                 ate(cont = verdadeiro)
             limpatela
                 repita
+                    limpatela
+                    escreval("==============================================")
+                    escreval("            POSIÇÃO DOS PERSONAGENS          ")
+                    escreval("==============================================")
+                    escreval(" ")
+                    // BEATRIZ
+                    se (beatriz = 0) entao
+                        escreval("Beatriz ------------------------------")
+                    senao
+                        escreval("------------------------------ Beatriz")
+                    fimse
+                    // CARLOS
+                    se (carlos = 0) entao
+                        escreval("Carlos  ------------------------------")
+                    senao
+                        escreval("------------------------------ Carlos")
+                    fimse
+                    // VOCÊ (player)
+                    se (player = 0) entao
+                        escreval("Você    ------------------------------")
+                    senao
+                        escreval("------------------------------ Você")
+                    fimse
+                    // DIANA
+                    se (diana = 0) entao
+                        escreval("Diana   ------------------------------")
+                    senao
+                        escreval("------------------------------ Diana")
+                    fimse
+                    escreval("INÍCIO                           FINAL")
+                    escreval("==============================================")
+                    escreval(" ")
                     escreval("TEMPO = Restam ",17-tempo," minutos !!")
                     escreval(" ")
                     cont<-falso
-                    limpatela
                     escreval("Escolha uma opção de volta")
                     escreval("        OPÇÕES DE VOLTA        ")
                     escreval("1 - Beatriz retorna com a lanterna")
@@ -304,6 +380,13 @@ inicio
                         outrocaso
                             escreval("OPÇÃO INVÁLIDA!")
                     fimescolha
+                    se(cont=falso) entao
+                        leia(pausa)
+                        escreval(" ")
+                        escreval("pressione qualquer tecla pra continuar")
+                    senao
+                        escreval(" ")
+                    fimse
                 ate(cont=verdadeiro)
             ate (beatriz=10 e carlos=10 e player=10 e diana=10 e tempo=17) ou (tempo>17)
             se(tempo=17 e beatriz=10 e carlos=10 e player=10 e diana=10) entao
