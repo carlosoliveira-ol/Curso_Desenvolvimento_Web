@@ -1,4 +1,4 @@
-algoritmo "Nome do Programa"
+algoritmo "SALVE O SERVER"
 
 var
 
