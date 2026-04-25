@@ -196,17 +196,106 @@
 
             </section>
 
+            <section><!---Questão 9 TABELA DE PONTUAÇÃO-->
+                <h2>9. Tabela de pontuação</h2>
+                        <tbody><!--Artifício que mostra a tabela em navegadores que não mostra a tabela apenas com a tag <table>-->
+                            <table border="1"> <!--Monta a estrutura de uma tabela-->
+                                <thead>
+                                    <tr>
+                                        <th> Pontuação</th><th>Descrição</th><!--A tag <th> cria um estilo para o trecho da tabela (negrito e centralizado)-->
+                                    </tr>
+
+                                </thead>
+                                    <tr> <!-- A tag <tr> cria uma linha na tabela-->
+                                        <td> 0 - 2 </td><td> Seu desempenho não foi muito bom.</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td> 3 - 4 </td><td>Seu desempenho foi moderado.</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td> 5 - 6 </td><td>Seu desempenho está regular.</td>
+                                    </tr>
+                                    <tr>
+                                        <td> 7 - 8 </td><td>Muito bom! Você está aprendendo.</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td> 9 - 10 </td><td>Parabéns programador!</td>
+                                    </tr>
+
+                                    <tfoot><!--Rodapé da tabela-->
+                                    
+                                            <th colspan="2"> Boa sorte!</th><!-- a adição do cosplan une as linhas da tabela em uma só-->
+                                    </tfoot>
+                            </table>
+                        </tbody>
+            </section>
+
+
+        
+            <section><!---Questão 10 - Lista de Respostas -->
+                <h2>10. Verifique sua resposta:</h2>
+                <!-- Como na tabela, para trabalharmos com listas, precisamos informar a intenção através da tag <ul>-->
+                    <ul><!-- <ul> Habilita lista / <ol> Lista numerada / <li> lista de pontos-->
+                        
+                        <details>
+
+                            <summary> Clique para visualizar respostas.</summary>
+                        
+                            <li>HTML</li>
+                            <li>Domínio</li>
+                            <li>A1L@ril89O</li>
+                            <li>1991</li>
+                            <li>Java - JavaScript - Python</li>
+                            <li>*.html</li>
+                            <li>type</li>
+                            <li>Java</li>
+                            
+                        </details>
+    
+                    </ul>
+            </section>
+
+
+            <section><!--Formulário de Feedback-->
             
-
+                <form>
+                    <fieldset>
+                        <legend>Informação de Contato:</legend>
+                            <label for="name"> Informe seu nome: </label>
+                                <input type="text" id="name" name="name"><br>
+                        <br>
+                            <label for="email">Informe seu e-mail: </label>
+                                <input type="text" id="email" name= email><br>
+                        <br>
+                            <b><label for="comentario">Comentário:</label></b><br>
+                                <textarea name="comentario" id="cmt" rows="4" cols="50" placeholder="Insira seu comentário aqui..."></textarea><!--A tag <textarea> é utilizada para textos, como por exemplo, para o usuário enviar um comentário-->
+                                
+                    </fieldset>
+                </form>
             
+            </section>
+                   
 
-        </main>
+    </main>
 
-        <footer><!--Rodapé da página-->
+    
 
-        </footer>
+    <footer><!--Rodapé da página-->
+        <p>Teste de Programadores - Todos os direitos reservados.</p>
+        <p>Para acessar mais tasks<a href="https://www.deviantart.com" target="_blank"> clique aqui</a> </p> <!--A tag <a> é para abrir um link, se você quiser que esta aba seja aberta em uma nova guia coloque o target="_blank"-->
+        <p><a href="pages\page1.html">Page 2</a></p>
+
+
+    </footer>
 
 
 </body>
 
 </html> <!--Fechamento OBRIGATÓRIO da página html-->
+
+            
+
+       
