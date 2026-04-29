@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --bg-color: rgba(2, 0, 36, 1); /* Variável para cor de fundo principal */
+    --card-bg: rgba(30, 41, 59, 0.7); /* Fundo com transparência (canal Alpha do rgba) para efeito vidro */
+    --text-color: #10f1e6; /* Cor do texto claro */
+    --primary: #15d696; /* Cor Azul vibrante (Nossa cor primária) */
+    --accent: #4ffc74; /* Cor Roxo (Nossa cor de destaque) */
+    --border-color: rgba(19, 255, 58, 0.945); /* Borda branca com apenas 10% de visibilidade */
+}
+* {
+    margin: 0; /* Zera as margens externas */
+    padding: 0; /* Zera o espaço interno */
+    /* O border-box impede que bordas e paddings aumentem o tamanho total definido para a caixa. */
+    box-sizing: border-box;
+}
+body {
+    font-family: "Roboto Condensed", sans-serif; /* Aplica a fonte que importamos. 'sans-serif' é o plano B. */
+
+    /* linear-gradient cria um fundo em degradê com cores inclinadas em 135 graus.
+       [MDN Reference: linear-gradient] */
+    background: linear-gradient(90deg, var(--bg-color),0%, rgba(9, 9, 121, 1), 35%, rgba(0, 212,255, 1), var(--bg-color));
+    background-size:300% 300%;
+    animation: gradientBG 15s ease infinite;
+    color: var(--text-color); /* Puxando a cor da nossa variável CSS */
+    line-height: 1.6; /* Aumenta o espaço entre as linhas de texto para facilitar a leitura */
+    padding: 20px; /* Dá um respiro nas bordas do site */
+    min-height: 100vh; /* Garante que o body ocupe no mínimo 100% da altura da tela (Viewport Height) */
+}
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+header {
+    text-align: center; /* Centraliza todo o texto interno */
+    padding: 40px 20px; /* 40px em cima/baixo, 20px nas laterais */
+
+
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+
+    /* backdrop-filter é o truque para o "Glassmorphism" (Efeito de Vidro Fosco).
+       Ele desfoca tudo o que estiver por trás deste elemento.
+       [MDN Reference: backdrop-filter] */
+    backdrop-filter: blur(10px);
+
+    border-radius: 15px; /* Arredonda os cantos */
+    margin-bottom: 30px; /* Empurra o resto do site para baixo */
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(14, 231, 159, 0.918); /* Sombra projetada */
+}
+
+/* Título Principal */
+h1 {
+    font-size: 3.5rem;
+
+    /* Criando um texto com gradiente! Pintamos o fundo e dizemos para preencher apenas o texto.
+       [MDN Reference: background-clip, text-fill-color] */
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+hr { display: none; }
+
+/* Estilizando as Sections (As "caixas" das perguntas) */
+section {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    margin: 20px auto; /* 'auto' nas laterais centraliza a caixa perfeitamente na tela */
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 800px; /* Impede que a caixa estique infinitamente em monitores ultrawide */
+    border: 1px solid var(--border-color);
+
+    /* Efeito Neon: Múltiplas camadas de brilho. Você pode adicionar várias sombras separadas por vírgula.
+       [MDN Reference: box-shadow] */
+    box-shadow: 0 0 20px rgba(110, 210, 250, 0.945), 
+                0 0 40px rgba(96, 29, 255, 0.781), 
+                inset 0 0 10px rgba(255, 255, 255, 0.05);
+
+    /* Dispara a animação 'fadeUp'. O 'forwards' manda a caixa parar no quadro final da animação. */
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+/* Keyframe para as sections surgirem do nada (opacidade 0) e de baixo para cima (translateY). */
+@keyframes fadeUp {
+    0% {
+        opacity: 0; /* Totalmente invisível */
+        transform: translateY(40px); /* 40px empurrado para baixo */
+    }
+    100% {
+        opacity: 1; /* Totalmente visível */
+        transform: translateY(0); /* Retorna à posição original */
+    }
+}
+
+/* Efeito de Esponja (Squish/Bounce). Usa scaleX e Y para esticar e achatar como uma borracha.
+   [MDN Reference: transform, scale()] */
+@keyframes sponge {
+    0% { transform: translateY(0) scale(1); }
+    30% { transform: translateY(0) scaleX(1.02) scaleY(0.96); }
+    50% { transform: translateY(0) scaleX(0.98) scaleY(1.02); }
+    70% { transform: translateY(0) scaleX(1.01) scaleY(0.99); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+/* A pseudo-classe :hover ativa os estilos apenas quando o cursor do mouse está por cima.
+   [MDN Reference: :hover] */
+section:hover {
+    animation: sponge 1s ease-out;
+}
+    fieldset {
+        border: 2px solid var(--border-color);
+        border-radius: 10px;
+        padding: 25px;
+    /* Transition cria a suavidade na mudança de estado (ex: ao passar o mouse depois) */
+        /*[MDN Reference: transition] */
+        transition: all s ease;
+}
+
+fieldset:hover {
+    border-color: var(--primary); /* Acende a borda com nossa cor azul */
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.15); /* Acende a sombra neon */
+}
+
+/* Legenda que presa a borda do fieldset */
+legend {
+    background: var(--bg-color);
+    color: var(--primary);
+    padding: 5px 20px;
+    border-radius: 20px;
+    border: 1px solid var(--primary);
+    font-weight: 600;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+}
+
+/* Estilização de múltiplos inputs ao mesmo tempo. Separamos por vírgula.
+   [MDN Reference: Attribute selectors (ex: [type="text"])] */
+input[type="text"], input[type="password"], input[type="date"], input[type="email"], select, textarea {
+    width: 100%; /* Força a ocupar a última linha */
+    padding: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+    accent-color: var(--primary);
+}
+
+/* AULA: ALINHAMENTO DE IMAGENS E MOLDURAS */
+
+/* Esconde as tags de linha (<hr>), pois já construímos a separação visual usando margens no CSS. */
+figure{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin:20px auto;
+    padding:20px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0,05), rgba(255, 255, 255, 0.01));
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+}
+
+figcaption{
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #cbd5el;
+    font-style: italic;
+}
+
+button {
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer; /*muda o cursor para uma mãozinha, indicando que é clicavél*/
+    transition: transform 0.2s, box-shadow 0,2s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    transform: scale(1.02); /*Botão cresce 2% quando passamos o mouse*/
+    box-shadow: 0 10px 20px rgba(139, 92, 246, 0.4);/*Projeta um Neon por baixo*/
+}
+
+/*Aula Tabela moderna, efeito zebra, glassmorphism*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: rgba(15, 23, 42, 0.6); /*fundo escuro com efeito vidro*/
+    border-radius: 12px; 
+    overflow: hidden; /*O overflow escondido corta tudo que sair do limite arredondando do fundo*/
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color)
+}
+
+/*Dados gerais da tabela e cabeçalho*/
+th, td {
+    padding: 18px, 15px; /* Mais espaço interno (respiro) para a tabela não aparecer apertada */
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /*Linha divisória bem sutil*/
+    transition: all 0.3s ease; /*Prepara animações sauves*/
+}
+
+/*Cabeçalhos emd destaque*/
+th{
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3)); /* Gradiente na linha de título */
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.95rem;
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.6); /* Brilha neon no cabeçalho */
+}
+
+/* Pseudo-classe :nth-child(): Seleciona elementos com base em uma fórmula matemática.
+   Aqui "even" pinta as linhas pares, "odd" pintaria as ímpares. Excelente para criar efeito Zebra.
+   MDN Reference: :nth-child */
+tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Destaca a linha inteira da tabela ao colocar o mouse */
+tbody tr:hover {
+    background-color: rgba(59, 130, 246, 0.15); /* Fundo azul translúcido */
+}
+
+/* Essa regra diz: Quando o mouse passar na linha (tr:hover), muda a tabela (td) que está DENTRO dela. */
+tbody tr:hover td {
+    color: #fff;
+    text-shadow: 0 0 8px var(--primary);
+    padding-left: 20px; /* Aumenta a distância da esquerda, criando efeito de escorregar. */
+}
+
+/* Configurando o rodapé específico da tabela */
+tfoot td {
+    text-align: center;
+    font-weight: 800;
+    color: var(--accent); /* Usa a cor roxa (accent) do nosso tema */
+    background: rgba(39, 208, 238, 0.9);
+    border-bottom: none;
+    text-transform: uppercase;
+}
+
+/* ---------------------------------------------------- */
+/* AULA: TIPOGRAFIA E TEXTOS DINÂMICOS (Efeito Neon/Glass) */
+/* ---------------------------------------------------- */
+
+/* Seleciona APENAS o H2 que tenha o ID 's01'
+   MDN Reference: ID selectors (#id) */
+h2#s01 {
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px var(--accent), 0 0 20px var(--primary);
+}
+/* Seleciona parágrafos que possuam a classe 'texto-introducao'.
+   MDN Reference: Class selectors (.) */
+p.texto-introducao {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: justify;
+    color: #cbd5e1; /* Cor de texto mais suave para leitura no fundo escuro */
+    padding: 25px;
+    background: rgba(15, 23, 42, 0.6); /* Fundo escuro translúcido */
+    border-left: 6px solid var(--primary); /* Barra lateral AZUL vibrante */
+    border-radius: 0 15px 15px 0;
+
+    /* A palavra 'inset' joga a sombra para o lado de DENTRO do objeto */
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s ease-in-out;
+}
+
+/* O lado Dinâmico: Efeito de cartão 3D que salta para a direita */
+p.texto-introducao:hover {
+    background: rgba(30, 41, 59, 0.8);
+    transform: translateX(10px);
+    border-left-color: var(--accent); /* Muda a borda de azul para roxo */
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.05);
+    }
+
+/* Magia do CSS: O pseudo-elemento ::first-letter
+   Ele localiza matematicamente a primeira letra do parágrafo, não importa qual seja.
+   MDN Reference: ::first-letter */
+p.texto-introducao:first-letter {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--primary);
+    float: left; /* Faz o restante do texto "contornar" a letra que flutua à esquerda */
+    margin-right: 12px;
+    line-height: 1;
+    text-shadow: 0 0 15px rgba(29, 115, 255, 0.911); /* Faz a primeira letra parecer um neon aceso */
+}
+p.description {
+    font-size: 1.5rem;
+    text-shadow: rgba(#10f1b9 );
+}   
